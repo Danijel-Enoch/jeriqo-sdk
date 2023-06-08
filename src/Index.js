@@ -1,7 +1,7 @@
 import React from 'react'
+import GenerateWallet from './services/GenerateWallet'
+import GetWalletAddress from './services/GetWalletAddress'
+import SeedPhraseToPrivateKey from './services/SeedPhraseToPrivateKey'
 
-export default function Index() {
-    return (
-        <div>Index</div>
-    )
-}
+export { SeedPhraseToPrivateKey, GetWalletAddress, GenerateWallet }
+
