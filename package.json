@@ -1,14 +1,15 @@
 {
 	"name": "jeriqo-sdk",
-	"version": "1.0.0",
-	"main": "node_modules/expo/AppEntry.js",
+	"version": "1.2.0",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"scripts": {
 		"start": "expo start",
 		"android": "expo start --android",
 		"ios": "expo start --ios",
 		"web": "expo start --web",
-		"build": "rm ./lib/* && tsc",
-		"pre": "rm ./lib/* && tsc && npm version patch"
+		"build": "rm -rf lib && tsc",
+		"pre": "rm -rf lib && tsc && npm version patch"
 	},
 	"dependencies": {
 		"@ethersproject/shims": "^5.7.0",
