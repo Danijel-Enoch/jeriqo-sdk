@@ -1,6 +1,6 @@
 
 
-export default function SendNativeToken() {
+export  function SendNativeToken() {
     return (
         <div>SendNativeToken</div>
     )

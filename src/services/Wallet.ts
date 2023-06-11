@@ -1,7 +1,7 @@
 import "@ethersproject/shims";
 import { ethers, JsonRpcProvider } from "ethers";
 
-export default class Wallet {
+export class Wallet {
 	chainId: number;
 	provider: JsonRpcProvider;
 	privateKey: string;
@@ -10,6 +10,7 @@ export default class Wallet {
 		// Standard ERC-20 functions
 		"function balanceOf(address account) view returns (uint256)",
 	];
+	walletInstance: ethers.Wallet;
 
 	constructor(
 		chainId: number,
@@ -21,6 +22,7 @@ export default class Wallet {
 		this.provider = new ethers.JsonRpcProvider(chainRPC);
 		this.privateKey = privateKey;
 		this.walletAddress = walletAddress;
+		this.walletInstance = new ethers.Wallet(this.privateKey, this.provider);
 	}
 
 	async checkEthBalance() {
@@ -45,6 +47,15 @@ export default class Wallet {
 	}
 	async checkNftBalance() {}
 	async sendNft() {}
-	async sendEth() {}
+	async sendEth(to: string, amount: string) {
+		const recipientAddress = to;
+		const amountToSend = ethers.parseEther(amount);
+		const transaction = {
+			to: recipientAddress,
+			value: amountToSend,
+		};
+		const response = await this.walletInstance.sendTransaction(transaction);
+		return response;
+	}
 	async sendErc20Token() {}
 }

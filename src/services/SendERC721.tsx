@@ -1,6 +1,6 @@
-import React from 'react'
 
-export default function SendERC721() {
+
+export  function SendERC721() {
     return (
         <div>SendERC721</div>
     )
