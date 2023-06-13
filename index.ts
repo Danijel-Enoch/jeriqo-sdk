@@ -3,6 +3,13 @@ import {
 	GetWalletAddress,
 	GenerateWallet,
 	Wallet,
+	getTokenBalance,
 } from "./src/Index";
 
-export { SeedPhraseToPrivateKey, GetWalletAddress, GenerateWallet, Wallet };
+export {
+	SeedPhraseToPrivateKey,
+	getTokenBalance,
+	GetWalletAddress,
+	GenerateWallet,
+	Wallet,
+};
